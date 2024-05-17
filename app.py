@@ -4,7 +4,9 @@ from google.oauth2 import service_account
 import library.client as mqtt_client
 
 import random
-import datetime
+from datetime import datetime
+import pytz
+
 # ct stores current time
 ct = datetime.datetime.now()
 
