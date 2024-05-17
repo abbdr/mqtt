@@ -5,7 +5,7 @@ import library.client as mqtt_client
 
 import random
 from datetime import datetime
-import pytz
+# import pytz
 
 # ct stores current time
 ct = datetime.datetime.now()
