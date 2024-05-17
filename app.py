@@ -57,6 +57,7 @@ def subscribe(client: mqtt_client):
         # update operation (add new key value)
         doc_ref.update({f'{num}': message})
         num += 1
+        st.rerun()
 
         print(message)
         st.markdown(message)
