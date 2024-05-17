@@ -10,10 +10,12 @@ import pytz
 # ct stores current time
 ct = datetime.now()
 
-utcmoment_naive = datetime.utcnow()
-utcmoment = utcmoment_naive.replace(tzinfo=pytz.utc)
+# utcmoment_naive = datetime.utcnow()
+# utcmoment = utcmoment_naive.replace(tzinfo=pytz.utc)
 # localFormat = "%Y-%m-%d %H:%M:%S"
-ct = utcmoment.astimezone(pytz.timezone('Asia/Jakarta'))
+# ct = utcmoment.astimezone(pytz.timezone('Asia/Jakarta'))
+# ct = ct.astimezone(pytz.timezone('Asia/Jakarta'))
+ct = pytz.timezone("Asia/Jakarta").localize(datetime.now()).strftime("%Y-%m-%d %H:%M:%S")
 # ct = ct.strftime(localFormat)
 
 # Authenticate to Firestore with the JSON account key.
