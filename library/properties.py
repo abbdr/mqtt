@@ -19,7 +19,7 @@
 import struct
 import sys
 
-from .packettypes import PacketTypes
+from library.packettypes import PacketTypes
 
 
 class MQTTException(Exception):
