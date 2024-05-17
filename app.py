@@ -1,6 +1,7 @@
 import streamlit as st
 from google.cloud import firestore
 from google.oauth2 import service_account
+import paho.client as mqtt_client
 
 # Authenticate to Firestore with the JSON account key.
 # db = firestore.Client.from_service_account_json("key.json")
