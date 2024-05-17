@@ -1,5 +1,5 @@
-import os
+import os, pytz, time
 from datetime import datetime
-os.environ['TZ'] = 'Europe/London'
-ct = datetime.now()
+ct = datetime.now().astimezone(pytz.timezone('Asia/Jakarta')).strftime("%Y-%m-%d %H:%M:%S")
+time.sleep(2)
 print(ct)

@@ -5,16 +5,14 @@ import library.client as mqtt_client
 
 import random
 from datetime import datetime
+import time
 import pytz
 
 
 # utcmoment_naive = datetime.utcnow()
 # utcmoment = utcmoment_naive.replace(tzinfo=pytz.utc)
-ct = datetime.now()
-# .strftime("%Y-%m-%d %H:%M:%S")
-# .astimezone(pytz.timezone('Asia/Jakarta'))
-# ct = pytz.timezone("Asia/Jakarta").localize(datetime.now()).strftime("%Y-%m-%d %H:%M:%S")
-
+ct = datetime.now().astimezone(pytz.timezone('Asia/Jakarta')).strftime("%Y-%m-%d %H:%M:%S")
+time.sleep(2)
 # Authenticate to Firestore with the JSON account key.
 import json
 key_dict = json.loads(st.secrets["textkey"])
