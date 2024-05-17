@@ -11,10 +11,10 @@ import pytz
 
 # utcmoment_naive = datetime.utcnow()
 # utcmoment = utcmoment_naive.replace(tzinfo=pytz.utc)
-ct = datetime.now().astimezone(pytz.timezone('Asia/Jakarta')).strftime("%Y-%m-%d %H:%M:%S")
-for i in range(10):
-  ct = datetime.now().astimezone(pytz.timezone('Asia/Jakarta')).strftime("%Y-%m-%d %H:%M:%S")
-time.sleep(2)
+# ct = datetime.now().astimezone(pytz.timezone('Asia/Jakarta')).strftime("%Y-%m-%d %H:%M:%S")
+# for i in range(10):
+#   ct = datetime.now().astimezone(pytz.timezone('Asia/Jakarta')).strftime("%Y-%m-%d %H:%M:%S")
+# time.sleep(2)
 # Authenticate to Firestore with the JSON account key.
 import json
 key_dict = json.loads(st.secrets["textkey"])
@@ -53,6 +53,7 @@ def connect_mqtt() -> mqtt_client:
 def subscribe(client: mqtt_client):
     def on_message(client, userdata, msg):
         global num, data, doc_ref, doc
+        ct = datetime.now().astimezone(pytz.timezone('Asia/Jakarta')).strftime("%Y-%m-%d %H:%M:%S")
         message = f"{msg.payload.decode().upper()} &emsp; at `{ct}` "
         # update operation (add new key value)
         doc_ref.update({f'{num}': message})
