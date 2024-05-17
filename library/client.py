@@ -23,10 +23,10 @@ import threading
 import time
 import uuid
 
-from .matcher import MQTTMatcher
-from .properties import Properties
-from .reasoncodes import ReasonCodes
-from .subscribeoptions import SubscribeOptions
+from library.matcher import MQTTMatcher
+from library.properties import Properties
+from library.reasoncodes import ReasonCodes
+from library.subscribeoptions import SubscribeOptions
 
 """
 This is an MQTT client module. MQTT is a lightweight pub/sub messaging
