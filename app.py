@@ -13,6 +13,9 @@ import json
 key_dict = json.loads(st.secrets["textkey"])
 creds = service_account.Credentials.from_service_account_info(key_dict)
 db = firestore.Client(credentials=creds, project="streamlit-abdul-test-aam")
+# Create a reference to the Google post.
+doc_ref = db.collection("posts").document("Google")
+
 
 # mqtt
 broker = 'broker.emqx.io'
@@ -45,9 +48,8 @@ def subscribe(client: mqtt_client):
         global num, data
         message = f"{msg.payload.decode().upper()} &emsp; at `{ct}` "
         # update operation (add new key value)
-        # if not db.reference(f"/{num}").get():
-        #     db.reference("/").update({num: message})
-        # num += 1
+        doc_ref.set({f'{num}': message})
+        num += 1
 
         print(message)
         st.markdown(message)
@@ -61,14 +63,13 @@ def run():
     client = connect_mqtt()
     subscribe(client)
     if 'file' not in st.session_state:
-        # Create a reference to the Google post.
-        doc_ref = db.collection("posts").document("Google")
         # Then get the data at that reference.
         doc = doc_ref.get()
         data  = doc.to_dict()
         # Let's see what we got!
         for i in range(1,len(data)+1):
           st.write(data[f"{i}"])
+          num += 1
         st.session_state.file = 0
     client.loop_forever()
 
