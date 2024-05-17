@@ -3,6 +3,11 @@ from google.cloud import firestore
 from google.oauth2 import service_account
 import library.client as mqtt_client
 
+import random
+import datetime
+# ct stores current time
+ct = datetime.datetime.now()
+
 # Authenticate to Firestore with the JSON account key.
 import json
 key_dict = json.loads(st.secrets["textkey"])
