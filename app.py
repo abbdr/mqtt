@@ -48,7 +48,7 @@ def subscribe(client: mqtt_client):
         global num, data
         message = f"{msg.payload.decode().upper()} &emsp; at `{ct}` "
         # update operation (add new key value)
-        doc_ref.set({f'{num}': message})
+        doc_ref.add({f'{num}': message})
         num += 1
 
         print(message)
