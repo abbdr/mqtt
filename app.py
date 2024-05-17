@@ -5,10 +5,10 @@ import library.client as mqtt_client
 
 import random
 from datetime import datetime
-# import pytz
+import pytz
 
 # ct stores current time
-ct = datetime.datetime.now()
+ct = datetime.now()
 
 # Authenticate to Firestore with the JSON account key.
 import json
