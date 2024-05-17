@@ -10,7 +10,8 @@ import pytz
 
 # utcmoment_naive = datetime.utcnow()
 # utcmoment = utcmoment_naive.replace(tzinfo=pytz.utc)
-ct = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+ct = datetime.now()
+# .strftime("%Y-%m-%d %H:%M:%S")
 # .astimezone(pytz.timezone('Asia/Jakarta'))
 # ct = pytz.timezone("Asia/Jakarta").localize(datetime.now()).strftime("%Y-%m-%d %H:%M:%S")
 
