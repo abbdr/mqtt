@@ -45,7 +45,7 @@ def connect_mqtt() -> mqtt_client:
 
 def subscribe(client: mqtt_client):
     def on_message(client, userdata, msg):
-        global num, data
+        global num, data, doc_ref
         message = f"{msg.payload.decode().upper()} &emsp; at `{ct}` "
         # update operation (add new key value)
         doc_ref.update({f'{num}': message})
@@ -59,7 +59,7 @@ def subscribe(client: mqtt_client):
 
 
 def run():
-    global num, data
+    global num, data, doc_ref
     client = connect_mqtt()
     subscribe(client)
     if 'file' not in st.session_state:
