@@ -5,8 +5,9 @@ from google.cloud import firestore
 # db = firestore.Client.from_service_account_json("key.json")
 import json
 key_dict = json.loads(st.secrets["textkey"])
-creds = service_account.Credentials.from_service_account_info(key_dict)
-db = firestore.Client(credentials=creds, project="streamlit-abdul-test-aam")
+db = firestore.Client.from_service_account_json(key_dict)
+# creds = service_account.Credentials.from_service_account_info(key_dict)
+# db = firestore.Client(credentials=creds, project="streamlit-abdul-test-aam")
 
 # Create a reference to the Google post.
 doc_ref = db.collection("posts").document("Google")
